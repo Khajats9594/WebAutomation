@@ -36,7 +36,7 @@ public class AddAvailableProductToCartTest {
         //wait for the message to be appear
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[normalize-space()='Item added to your cart']")));
-        assert message.getText().contains("!2Item added to your cart");
+        assert message.getText().contains("Item added to your cart");
 
         //verify that the cart item count is incremented
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.className("cart-count-bubble"), initialItemCount)));
@@ -46,6 +46,7 @@ public class AddAvailableProductToCartTest {
         assert !initialItemCount.equals(finalItemCount) : "Assertion failed: Cart item count not incremented.";
 
         System.out.println("Test passed: Product added to the cart and cart item count incremented successfully.");
+        driver.quit();
 
     }
 }
