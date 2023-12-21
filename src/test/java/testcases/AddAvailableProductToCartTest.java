@@ -36,7 +36,8 @@ public class AddAvailableProductToCartTest {
         //wait for the message to be appear
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement message = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[normalize-space()='Item added to your cart']")));
-        assert message.getText().contains("Item added to your cart");
+        String conformMessage = "Item added to your cart";
+        assert message.getText().trim().contains(conformMessage);
 
         //verify that the cart item count is incremented
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(By.className("cart-count-bubble"), initialItemCount)));
