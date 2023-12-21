@@ -27,6 +27,7 @@ public class VerifyProductAvailabilityTest {
             //product is available
             System.out.println("product is available for purchase");
         }
+        driver.quit();
     }
 }
 
