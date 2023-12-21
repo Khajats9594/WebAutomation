@@ -32,5 +32,6 @@ public class CartCleanUpTest {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//h1[normalize-space()='Your cart is empty']"), "Your cart is empty"));
         WebElement emptyMessage = driver.findElement(By.xpath("//h1[normalize-space()='Your cart is empty']"));
         assert emptyMessage.getText().equals("Your cart is empty"):"Assertion failed: Cart is not empty after removal.";
+        driver.quit();
     }
 }
