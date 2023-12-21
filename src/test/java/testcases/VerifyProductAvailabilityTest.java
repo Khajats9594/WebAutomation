@@ -19,7 +19,7 @@ public class VerifyProductAvailabilityTest {
         //check if the product is available or sold out
         WebElement availabilityMessage = driver.findElement(By.xpath("//button[@name='add']"));
         String message = availabilityMessage.getText();
-        if (message.contains("Sold Out")) {
+        if (message.contains("Sold Ou")) {
             //log the appropriate message and exit the test
             System.out.println("product is sold out.Test will be terminated.");
             Assert.fail("product is Sold Out");
