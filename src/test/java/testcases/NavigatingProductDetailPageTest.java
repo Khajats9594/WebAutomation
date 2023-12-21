@@ -7,10 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class VerifyingProductAvailabilityTest{
+public class NavigatingProductDetailPageTest {
 
     @Test
-    public void verifyingProductAvailabilityTest(){
+    public void navigatingProductDetailPageTest(){
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://web-playground.ultralesson.com/");
