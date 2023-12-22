@@ -12,14 +12,15 @@ public class BaseTest {
 
     protected BaseTest(){}
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeMethod
     public void setUp(){
         if(Objects.isNull(driver)) {
             driver = new ChromeDriver();
+            driver.get("https://web-playground.ultralesson.com/");
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
     }
 
