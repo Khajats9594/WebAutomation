@@ -1,6 +1,7 @@
 package driver;
 
 import enums.BrowserType;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -11,25 +12,26 @@ public final class DriverFactory {
     private DriverFactory(){}// Private constructor to prevent external instantiation
     /**
      * Sets the WebDriver instance based on the specified BrowserType.
+     *
      * @param browserType The type of browser to set.
+     * @return
      */
-    static void setDriver(BrowserType browserType){
+    static WebDriver createDriver(BrowserType browserType){
         switch (browserType){
             case CHROME: {
-                DriverManager.setDriver(new ChromeDriver());
-                break;
+                return new ChromeDriver();
             }
             case FIREFOX: {
-                DriverManager.setDriver(new FirefoxDriver());
-                break;
+               return new FirefoxDriver();
             }
             case EDGE: {
-                DriverManager.setDriver(new InternetExplorerDriver());
-                break;
+               return new InternetExplorerDriver();
             }
             case SAFARI:{
-                DriverManager.setDriver(new SafariDriver());
-                break;
+                return new SafariDriver();
+            }
+            default:{
+                throw new IllegalArgumentException("Unsupported browser type: " + browserType);
             }
         }
     }
