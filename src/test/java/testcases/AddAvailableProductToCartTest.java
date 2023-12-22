@@ -1,6 +1,7 @@
 package testcases;
 
 import Pages.HomePage;
+import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,7 +61,7 @@ public class AddAvailableProductToCartTest extends BaseTest{
         String successMessage = "Item added to your cart";
 
         //Act
-        String addToCartSuccessMessage = new HomePage(driver)
+        String addToCartSuccessMessage = new HomePage(DriverManager.getDriver())
                 .navigateProductDetailPage()
                 .addToCart()
                 .getAddToCartSuccessMessage();

@@ -1,5 +1,7 @@
 package testcases;
 
+import driver.Driver;
+import enums.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -12,22 +14,13 @@ public class BaseTest {
 
     protected BaseTest(){}
 
-    protected WebDriver driver;
-
     @BeforeMethod
     public void setUp(){
-        if(Objects.isNull(driver)) {
-            driver = new ChromeDriver();
-            driver.get("https://web-playground.ultralesson.com/");
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        }
+        Driver.initDriver(BrowserType.CHROME);
     }
 
     @AfterMethod
     public void tearDown(){
-        if(Objects.nonNull(driver)) {
-            driver.quit();
-        }
+        Driver.quiteDriver();
     }
 }
