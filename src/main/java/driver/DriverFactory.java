@@ -13,7 +13,7 @@ public final class DriverFactory {
      * Sets the WebDriver instance based on the specified BrowserType.
      * @param browserType The type of browser to set.
      */
-    public static void setDriver(BrowserType browserType){
+    static void setDriver(BrowserType browserType){
         switch (browserType){
             case CHROME: {
                 DriverManager.setDriver(new ChromeDriver());

@@ -19,13 +19,13 @@ public final class DriverManager {
      * Sets the WebDriver instance for the current thread.
      * @param driver The WebDriver instance to set.
      */
-    public static void setDriver(WebDriver driver) {
+    static void setDriver(WebDriver driver) {
         dr.set(driver);
     }
     /**
      * Unloads the WebDriver instance for the current thread.
      */
-    public static void unload() {
+    static void unload() {
         dr.remove();
     }
 }
