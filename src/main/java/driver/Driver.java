@@ -1,6 +1,7 @@
 package driver;
 
 import enums.BrowserType;
+import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 import java.util.Objects;
@@ -17,7 +18,8 @@ public final class Driver {
      */
     public static synchronized void initDriver(BrowserType browserType){
         if(Objects.isNull(DriverManager.getDriver())){
-            DriverFactory.setDriver(browserType);
+            WebDriver driver = DriverFactory.createDriver(browserType);
+            DriverManager.setDriver(driver);
         }
         DriverManager.getDriver().get("https://web-playground.ultralesson.com/");
         DriverManager.getDriver().manage().window().maximize();
