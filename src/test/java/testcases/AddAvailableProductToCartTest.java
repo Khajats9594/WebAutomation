@@ -1,16 +1,18 @@
 package testcases;
 
+import Pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class AddAvailableProductToCartTest {
+public class AddAvailableProductToCartTest extends BaseTest{
 
     @Test
     public void addToCartTest() {
@@ -49,5 +51,21 @@ public class AddAvailableProductToCartTest {
         System.out.println("Test passed: Product added to the cart and cart item count incremented successfully.");
         driver.quit();
 
+    }
+
+    @Test
+    public void addAvailableProductToCartTest(){
+        //Arrange
+        String productName = "15mm Combo Wrench";
+        String successMessage = "Item added to your cart";
+
+        //Act
+        String addToCartSuccessMessage = new HomePage(driver)
+                .navigateProductDetailPage()
+                .addToCart()
+                .getAddToCartSuccessMessage();
+
+        //Assert
+        Assert.assertEquals(addToCartSuccessMessage,successMessage,"product is not added successfully");
     }
 }
